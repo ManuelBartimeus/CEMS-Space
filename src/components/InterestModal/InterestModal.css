@@ -1,0 +1,95 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .interest-modal {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .interest-modal h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .interest-modal p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .interest-pill {
+    background-color: #f5f5f5;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .interest-pill.selected {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .skip-button {
+    background: none;
+    border: 1px solid #eee;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .save-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .interest-modal {
+      padding: 1.5rem;
+    }
+  }
+  
+  

@@ -1,0 +1,27 @@
+.trending-hashtags {
+    background-color: var(--dark-blue);
+    padding: 1.5rem 0;
+  }
+  
+  .hashtags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  
+  .hashtag-pill {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .hashtag-pill:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  

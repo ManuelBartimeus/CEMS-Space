@@ -1,0 +1,17 @@
+.event-section {
+    padding: 2rem 0;
+  }
+  
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .events-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  
