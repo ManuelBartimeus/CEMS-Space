@@ -1,19 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Header from "./components/Header/Header"
-import HeroBanner from "./components/HeroBanner/HeroBanner"
-import Categories from "./components/Categories/Categories"
-import EventSection from "./components/EventSection/EventSection"
-import TrendingHashtags from "./components/TrendingHashtags/TrendingHashtags"
-import PopularOrganizers from "./components/PopularOrganizers/PopularOrganizers"
-import Testimonials from "./components/Testimonials/Testimonials"
-import Footer from "./components/Footer/Footer"
-import InterestModal from "./components/InterestModal/InterestModal"
-import "./App.css"
+import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import Header from "./components/Header/Header";
+import HeroBanner from "./components/HeroBanner/HeroBanner";
+import Categories from "./components/Categories/Categories";
+import EventSection from "./components/EventSection/EventSection";
+import TrendingHashtags from "./components/TrendingHashtags/TrendingHashtags";
+import PopularOrganizers from "./components/PopularOrganizers/PopularOrganizers";
+import Testimonials from "./components/Testimonials/Testimonials";
+import Footer from "./components/Footer/Footer";
+import InterestModal from "./components/InterestModal/InterestModal";
+import "./App.css";
 
 function App() {
-  const [showInterestModal, setShowInterestModal] = useState(false)
+  const [showInterestModal, setShowInterestModal] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState("SCISA");
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const locations = ["SCISA", "Computer Science", "Biochemistry", "Physics", "Food Science", "Metorological Science"];
+
+  const handleLocationClick = (location) => {
+    setSelectedLocation(location);
+    setDropdownVisible(false);
+  };
 
   return (
     <div className="app">
@@ -21,24 +31,99 @@ function App() {
       <main>
         <HeroBanner />
         <Categories />
-        <EventSection title="Browse events on CHRIST" events={christEvents} />
-        <EventSection title="Based on your interests" events={interestBasedEvents} />
+        <hr className="event-divider" />
+        <EventSection
+          title={
+            <div className="location-selector">
+              <div className="location-text">
+                Browse events for
+                <button
+                  className="highlighted-text"
+                  onClick={() => setDropdownVisible(!dropdownVisible)}
+                >
+                  {selectedLocation}
+                  <IoIosArrowDown />
+                </button>
+              </div>
+
+              {dropdownVisible && (
+                <ul className="dropdown-menu">
+                  {locations.map((location) => (
+                    <li
+                      key={location}
+                      onClick={() => handleLocationClick(location)}
+                    >
+                      {location}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          }
+          events={christEvents}
+        />
+        <hr className="event-divider" />
+        <EventSection
+          title="Based on your interests"
+          events={interestBasedEvents}
+        />
         <TrendingHashtags />
-        <EventSection title="Trending #hashtags" events={trendingEvents} showMore={true} />
+        <EventSection
+          title="Trending #hashtags"
+          events={trendingEvents}
+          showMore={true}
+        />
         <EventSection title="More Events" events={moreEvents} showMore={true} />
         <PopularOrganizers />
         <Testimonials />
       </main>
       <Footer />
-      {showInterestModal && <InterestModal onClose={() => setShowInterestModal(false)} />}
+      {showInterestModal && (
+        <InterestModal onClose={() => setShowInterestModal(false)} />
+      )}
     </div>
-  )
+  );
 }
 
 // Sample data
 const christEvents = [
-  // Event data will go here
-]
+  {
+    id: 1,
+    title: "Midnight Memories",
+    date: "Oct 15",
+    location: "Chennai",
+    image: "/placeholder.svg?height=200&width=300",
+    rating: 4,
+    bookmarked: false,
+  },
+  {
+    id: 2,
+    title: "Coding Workshop",
+    date: "Oct 18",
+    location: "Bangalore",
+    image: "/placeholder.svg?height=200&width=300",
+    rating: 5,
+    bookmarked: true,
+  },
+  {
+    id: 3,
+    title: "Music DJ Night",
+    date: "Oct 20",
+    location: "Hyderabad",
+    image: "/placeholder.svg?height=200&width=300",
+    rating: 4,
+    bookmarked: false,
+  },
+  {
+    id: 4,
+    title: "Food and Wine Festival",
+    date: "Oct 22",
+    location: "Mumbai",
+    image: "/placeholder.svg?height=200&width=300",
+    rating: 5,
+    bookmarked: true,
+  }
+];
 
 const interestBasedEvents = [
   {
@@ -113,15 +198,14 @@ const interestBasedEvents = [
     rating: 5,
     bookmarked: true,
   },
-]
+];
 
 const trendingEvents = [
   // Similar structure as interestBasedEvents
-]
+];
 
 const moreEvents = [
   // Similar structure as interestBasedEvents
-]
+];
 
-export default App
-
+export default App;
