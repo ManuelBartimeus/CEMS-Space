@@ -11,12 +11,21 @@ import PopularOrganizers from "./components/PopularOrganizers/PopularOrganizers"
 import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import InterestModal from "./components/InterestModal/InterestModal";
+
+import Excursion from "./assets/ExcursionFlyer.jpg";
+import Seminar1 from "./assets/seminar_1.jpg";
+import Seminar2 from "./assets/seminar_2.jpg";
+import Seminar3 from "./assets/seminar_3.jpg";
+import Workshop1 from "./assets/workshop_1.jpg";
+import Entertainment1 from "./assets/entertainment-1.jpg";
+import Career1 from "./assets/career_1.jpg";
 import "./App.css";
 
 function App() {
   const [showInterestModal, setShowInterestModal] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("SCISA");
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const locations = ["SCISA", "Computer Science", "Biochemistry", "Physics", "Food Science", "Metorological Science"];
 
@@ -25,12 +34,24 @@ function App() {
     setDropdownVisible(false);
   };
 
+  const filteredEvents = selectedCategory === "All" 
+    ? Events 
+    : Events.filter(event => event.category === selectedCategory);
+
   return (
     <div className="app">
       <Header />
       <main>
         <HeroBanner />
-        <Categories />
+        <Categories 
+          selectedCategory={selectedCategory} 
+          setSelectedCategory={setSelectedCategory} 
+        />
+        <hr className="event-divider" />
+        <EventSection
+          events={filteredEvents}
+        />
+        <TrendingHashtags />
         <hr className="event-divider" />
         <EventSection
           title={
@@ -60,20 +81,9 @@ function App() {
               )}
             </div>
           }
-          events={christEvents}
+          events={filteredEvents}
         />
         <hr className="event-divider" />
-        <EventSection
-          title="Based on your interests"
-          events={interestBasedEvents}
-        />
-        <TrendingHashtags />
-        <EventSection
-          title="Trending #hashtags"
-          events={trendingEvents}
-          showMore={true}
-        />
-        <EventSection title="More Events" events={moreEvents} showMore={true} />
         <PopularOrganizers />
         <Testimonials />
       </main>
@@ -85,118 +95,83 @@ function App() {
   );
 }
 
-// Sample data
-const christEvents = [
+const Events = [
   {
     id: 1,
-    title: "Midnight Memories",
-    date: "Oct 15",
-    location: "Chennai",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Cape Hang-Out",
+    date: "March 15",
+    location: "Cape Coast",
+    image: Excursion,
     rating: 4,
     bookmarked: false,
+    category: "Graduation",
+    creator: "SCISA",
   },
   {
     id: 2,
     title: "Coding Workshop",
     date: "Oct 18",
     location: "Bangalore",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Seminar1,
     rating: 5,
     bookmarked: true,
+    category: "Workshop",
+    creator: "CSS",
   },
   {
     id: 3,
     title: "Music DJ Night",
     date: "Oct 20",
     location: "Hyderabad",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Entertainment1,
     rating: 4,
     bookmarked: false,
+    category: "Entertainment",
+    creator: "SCISA",
   },
   {
     id: 4,
     title: "Food and Wine Festival",
     date: "Oct 22",
     location: "Mumbai",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Seminar2,
     rating: 5,
     bookmarked: true,
-  }
-];
-
-const interestBasedEvents = [
-  {
-    id: 1,
-    title: "Midnight Memories",
-    date: "Oct 15",
-    location: "Chennai",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4,
-    bookmarked: false,
-  },
-  {
-    id: 2,
-    title: "Coding Workshop",
-    date: "Oct 18",
-    location: "Bangalore",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 5,
-    bookmarked: true,
-  },
-  {
-    id: 3,
-    title: "Music DJ Night",
-    date: "Oct 20",
-    location: "Hyderabad",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4,
-    bookmarked: false,
-  },
-  {
-    id: 4,
-    title: "Food and Wine Festival",
-    date: "Oct 22",
-    location: "Mumbai",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 5,
-    bookmarked: true,
+    category: "Seminar",
+    creator: "BCHEM",
   },
   {
     id: 5,
-    title: "Indie music / Dance",
+    title: "Indie Music / Dance",
     date: "Oct 25",
     location: "Delhi",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Seminar3,
     rating: 4,
     bookmarked: false,
+    category: "Entertainment",
+    creator: "CSS",
   },
   {
     id: 6,
     title: "Art Exhibition",
     date: "Oct 28",
     location: "Kolkata",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Workshop1,
     rating: 5,
     bookmarked: true,
+    category: "Workshop",
+    creator: "SCISA",
   },
   {
     id: 7,
     title: "Comedy Night",
     date: "Oct 30",
     location: "Pune",
-    image: "/placeholder.svg?height=200&width=300",
+    image: Career1,
     rating: 4,
     bookmarked: false,
-  },
-  {
-    id: 8,
-    title: "Tech Summit 2023",
-    date: "Nov 2",
-    location: "Goa",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 5,
-    bookmarked: true,
+    category: "Career",
+    creator: "BCHEM",
   },
 ];
 

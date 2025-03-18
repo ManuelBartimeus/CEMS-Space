@@ -11,9 +11,9 @@
   
   .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 3.5rem;
-    margin-left: 70px; 
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 2.5rem;
+    
   }
   
   .category-card {
