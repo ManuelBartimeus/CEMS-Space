@@ -1,19 +1,21 @@
 import "./Categories.css";
-import seminar from "../../assets/seminar.png";
-import hackathon from "../../assets/hackathon.png";
-import career from "../../assets/career.png";
-import entertainment from "../../assets/entertainment.png";
-import graduation from "../../assets/graduation.png";
-import workshop from "../../assets/workshop.png";
+import seminar from "../../assets/category-icons/seminar.png";
+import hackathon from "../../assets/category-icons/hackathon.png";
+import career from "../../assets/category-icons/career.png";
+import entertainment from "../../assets/category-icons/entertainment.png";
+import graduation from "../../assets/category-icons/graduation.png";
+import workshop from "../../assets/category-icons/workshop.png";
+import all_events from "../../assets/category-icons/all-events.png"
 
-const Categories = () => {
+const Categories = ({ selectedCategory, setSelectedCategory }) => {
   const categories = [
-    { id: 1, name: "Seminars", image: seminar },
-    { id: 2, name: "Hackathons", image: hackathon },
-    { id: 3, name: "Career", image: career },
-    { id: 4, name: "Entertainment", image: entertainment },
-    { id: 5, name: "Workshops", image: workshop },
-    { id: 6, name: "Graduation", image: graduation },
+    { id: 1, name: "All", image: all_events },
+    { id: 2, name: "Seminar", image: seminar },
+    { id: 3, name: "Hackathon", image: hackathon },
+    { id: 4, name: "Career", image: career },
+    { id: 5, name: "Entertainment", image: entertainment },
+    { id: 6, name: "Workshop", image: workshop },
+    { id: 7, name: "Graduation", image: graduation },
   ];
 
   return (
@@ -24,7 +26,11 @@ const Categories = () => {
         </div>
         <div className="categories-grid">
           {categories.map((category) => (
-            <div className="category-card" key={category.id}>
+            <div
+              className={`category-card ${selectedCategory === category.name ? "selected" : ""}`}
+              key={category.id}
+              onClick={() => setSelectedCategory(category.name)}
+            >
               <div className="category-image">
                 <img
                   src={category.image || "/placeholder.svg"}
