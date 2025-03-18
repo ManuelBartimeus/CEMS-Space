@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import "./Header.css"
-import logo from "../../assets/prime-icons/logo.png"
+import logo from "../../../assets/prime-icons/logo.png"
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("")

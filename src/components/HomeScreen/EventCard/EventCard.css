@@ -13,7 +13,7 @@
   
   .event-image {
     position: relative;
-    height: 200px;
+    height: 160px;
   }
   
   .event-image img {
@@ -61,8 +61,8 @@
   }
   
   .event-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 550;
     margin-bottom: 0.5rem;
     color: #333;
   }
@@ -71,7 +71,11 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-    font-size: 0.8rem;
+  }
+
+  .event-meta p{
+    font-size: 14px;
+    font-weight: 600;
     color: #666;
   }
   
@@ -87,7 +91,7 @@
   }
   
   .book-now-button:hover {
-    background-color: #4a21c9;
+    background-color: #112D4E;
   }
   
   

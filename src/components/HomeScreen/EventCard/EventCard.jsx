@@ -50,8 +50,8 @@ const EventCard = ({ event }) => {
       <div className="event-info">
         <h3 className="event-title">{event.title}</h3>
         <div className="event-meta">
-          <span className="event-date">{event.date}</span>
-          <span className="event-location">{event.location}</span>
+          <p>{event.date}</p>
+          <p>{event.location}</p>
         </div>
         <button className="book-now-button">Book Now</button>
       </div>

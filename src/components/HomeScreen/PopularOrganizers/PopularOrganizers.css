@@ -1,0 +1,112 @@
+.popular-organizers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.view-all-button {
+  background: linear-gradient(-45deg, #e9b200, #e67833);
+  color: white;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.view-all-button:hover {
+  background: linear-gradient(45deg, #e89b1e, #e67833);
+  transform: translateY(-2px);
+}
+
+.view-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Add a gap of 5px between the icon and the text */
+}
+
+.organizers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.organizer-card {
+  background: transparent;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.organizer-card:hover {
+  transform: translateY(-5px);
+}
+
+.organizer-image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding: 5px;
+}
+
+.organizer-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: auto;
+  margin-bottom: 1rem;
+}
+
+.organizer-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.follow-button {
+  background: #e67833;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.follow-button:hover {
+  background: #e89b1e;
+}
+
+@media (max-width: 768px) {
+  .organizers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+

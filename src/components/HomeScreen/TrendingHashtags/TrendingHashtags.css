@@ -1,6 +1,7 @@
 .trending-hashtags {
     background-color: var(--dark-blue);
-    padding: 1.5rem 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
   
   .hashtags-container {

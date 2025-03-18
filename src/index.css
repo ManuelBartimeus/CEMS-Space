@@ -3,10 +3,10 @@
 :root {
   --primary-color:#e67833;
   --secondary-color: #f9a826;
-  --dark-blue: #0a1172;
+  --dark-blue: #112D4E;
   --light-gray: #f5f5f5;
-  --text-color: #333;
-  --white: #ffffff;
+  --text-color: #112D4E;
+  --white: #F9F9F9;
 }
 
 * {

@@ -33,7 +33,7 @@ const Footer = () => {
                 <a href="#">Email Us</a>
               </li>
               <li>
-                <a href="#">+1 (555) 123-4567</a>
+                <a href="#">+233 (594) 616-4728</a>
               </li>
               <li>
                 <a href="#">Live Chat</a>
@@ -145,7 +145,7 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <p className="copyright">© {new Date().getFullYear()} ceet. All rights reserved.</p>
+          <p className="copyright">© {new Date().getFullYear()} CEMS. All rights reserved.</p>
         </div>
       </div>
     </footer>

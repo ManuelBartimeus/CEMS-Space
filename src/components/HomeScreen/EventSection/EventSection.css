@@ -5,7 +5,11 @@
   .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .section-title {
+    color: #112D4E;
   }
   
   @media (max-width: 768px) {
