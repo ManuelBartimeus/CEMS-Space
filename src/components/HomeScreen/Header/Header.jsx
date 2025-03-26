@@ -21,6 +21,14 @@ const Header = () => {
     navigate("/aboutme"); // Redirect to the AboutMe screen
   };
 
+  const handleProtectedNavigation = (path) => {
+    if (!loggedInUser) {
+      navigate("/login"); // Redirect to login if not logged in
+    } else {
+      navigate(path); // Navigate to the intended path
+    }
+  };
+
   return (
     <header className="header">
       <div className="container header-container">
@@ -56,10 +64,12 @@ const Header = () => {
         <nav className="nav-links">
           <ul>
             <li>
-              <a href="/">Explore</a>
+              <a onClick={() => handleProtectedNavigation("/")}>Explore</a>
             </li>
             <li>
-              <a href="/createevent">Create Event</a>
+              <a onClick={() => handleProtectedNavigation("/createevent")}>
+                Create Event
+              </a>
             </li>
             {!loggedInUser && (
               <li>

@@ -4,8 +4,21 @@ import Bchem from "../../../assets/organizers/bchem.png";
 import Physics from "../../../assets/organizers/physics.png";
 import Css from "../../../assets/organizers/css.png";
 import { HiViewGrid } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext"; // Import useUser
 
 const PopularOrganizers = () => {
+  const navigate = useNavigate();
+  const { loggedInUser } = useUser(); // Access loggedInUser from context
+
+  const handleProtectedClick = (path) => {
+    if (!loggedInUser) {
+      navigate("/login"); // Redirect to login if not logged in
+    } else {
+      navigate(path); // Navigate to the intended path
+    }
+  };
+
   const organizers = [
     { id: 1, name: "Science Students Association (SCISA)", image: Scisa },
     { id: 2, name: "Biochemistry Students Association", image: Bchem },
@@ -18,7 +31,10 @@ const PopularOrganizers = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Popular Organizers</h2>
-          <button className="view-all-button">
+          <button
+            className="view-all-button"
+            onClick={() => handleProtectedClick("/organizers")}
+          >
             <div className="view-button-container">
               <HiViewGrid /> <p>View All</p>
             </div>
@@ -34,7 +50,12 @@ const PopularOrganizers = () => {
                 />
               </div>
               <h3>{organizer.name}</h3>
-              <button className="follow-button">Follow</button>
+              <button
+                className="follow-button"
+                onClick={() => handleProtectedClick("/follow")}
+              >
+                Follow
+              </button>
             </div>
           ))}
         </div>

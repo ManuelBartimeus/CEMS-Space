@@ -1,8 +1,21 @@
 import "./HeroBanner.css";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdDateRange } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext"; // Import useUser
 
 const HeroBanner = () => {
+  const navigate = useNavigate();
+  const { loggedInUser } = useUser(); // Access loggedInUser from context
+
+  const handleRegisterClick = () => {
+    if (!loggedInUser) {
+      navigate("/login"); // Redirect to login if not logged in
+    } else {
+      // Handle registration logic here
+    }
+  };
+
   return (
     <section className="hero-banner">
       <div className="hero-content">
@@ -17,7 +30,9 @@ const HeroBanner = () => {
             <MdDateRange className="position-icon" />
             25th March, 2025
           </p>
-          <button className="tickets-button">REGISTER</button>
+          <button className="tickets-button" onClick={handleRegisterClick}>
+            REGISTER
+          </button>
         </div>
       </div>
     </section>

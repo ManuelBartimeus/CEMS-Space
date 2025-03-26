@@ -3,15 +3,24 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { bookings } from "../../../data/bookings"; // Import bookings array
+import { useUser } from "../../../context/UserContext"; // Import useUser
 
 const CalendarTab = () => {
-  const events = [
-    { title: "Event Name", start: "2025-03-12T02:00:00", location: "Location" },
-    { title: "Event Name", start: "2025-03-17T05:00:00", location: "Online" },
-    { title: "Event Name", start: "2025-03-18T07:00:00", location: "Location" },
-    { title: "Event Name", start: "2025-03-11T09:00:00", location: "Online" },
-    { title: "Event Name", start: "2025-03-04T13:00:00", location: "Location" },
-  ];
+  const { loggedInUser } = useUser(); // Access the logged-in user
+
+  // Filter bookings for the logged-in user
+  const userBookings = bookings.filter(
+    (booking) => booking.userId === loggedInUser?.email
+  );
+
+  // Map bookings to FullCalendar event format
+  const calendarEvents = userBookings.map((booking) => ({
+    title: booking.title,
+    start: booking.date + "T" + booking.startTime, // Combine date and start time
+    end: booking.date + "T" + booking.endTime, // Combine date and end time
+    location: booking.location,
+  }));
 
   return (
     <div className="calendar-tab">
@@ -23,7 +32,7 @@ const CalendarTab = () => {
           center: "title",
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
-        events={events}
+        events={calendarEvents} // Pass the filtered and formatted events
       />
     </div>
   );

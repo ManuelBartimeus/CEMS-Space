@@ -56,7 +56,7 @@ export const events = [
   {
     id: 3,
     title: "Music DJ Night",
-    date: "Oct 20",
+    date: "March 20",
     location: "Hyderabad",
     image: Entertainment1,
     rating: 4,

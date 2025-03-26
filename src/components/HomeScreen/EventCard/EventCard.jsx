@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useUser } from "../../../context/UserContext"; // Import useUser
 import "./EventCard.css";
 
 const EventCard = ({ event }) => {
   const [isBookmarked, setIsBookmarked] = useState(event.bookmarked || false);
   const navigate = useNavigate(); // Initialize useNavigate
+  const { loggedInUser } = useUser(); // Access loggedInUser from context
 
   const toggleBookmark = (e) => {
     e.preventDefault();
@@ -14,7 +16,11 @@ const EventCard = ({ event }) => {
   };
 
   const handleCardClick = () => {
-    navigate(`/book/${event.id}`); // Navigate to the EventBooking screen with the event ID
+    if (!loggedInUser) {
+      navigate("/login"); // Redirect to login if not logged in
+    } else {
+      navigate(`/book/${event.id}`); // Navigate to the EventBooking screen with the event ID
+    }
   };
 
   return (
