@@ -17,8 +17,8 @@ const CalendarTab = () => {
   // Map bookings to FullCalendar event format
   const calendarEvents = userBookings.map((booking) => ({
     title: booking.title,
-    start: booking.date + "T" + booking.startTime, // Combine date and start time
-    end: booking.date + "T" + booking.endTime, // Combine date and end time
+    start: `${booking.date}T${booking.startTime}`, // Combine date and start time
+    end: `${booking.date}T${booking.endTime}`, // Combine date and end time
     location: booking.location,
   }));
 
