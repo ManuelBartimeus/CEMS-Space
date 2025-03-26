@@ -1,5 +1,5 @@
 .hero-banner {
-  height: 400px;
+  height: 500px;
   width: 85%;
   border-radius: 15px;
   background-image: url("../../../assets/pic3.JPG");
@@ -18,36 +18,38 @@
   align-items: flex-start;
 }
 
-.event-details {
+.hero-banner .event-details {
   max-width: 600px;
 }
 
-.event-details h1 {
+.hero-banner .event-details h1 {
   font-size: 3.3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.event-tagline {
+.hero-banner .event-tagline {
+  color: #fff; 
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.event-venue,
-.event-date {
+.hero-banner .event-venue,
+.hero-banner .event-date {
+  color: #fff;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.position-icon {
+.hero-banner .position-icon {
   margin-right: 10px;
 }
 
-.tickets-button {
+.hero-banner .tickets-button {
   background: linear-gradient(-45deg, #e9b200, #e67833);
   color: white;
   padding: 0.8rem 2rem;
@@ -58,17 +60,17 @@
   transition: all 0.3s ease;
 }
 
-.tickets-button:hover {
+.hero-banner .tickets-button:hover {
   background: linear-gradient(45deg, #e89b1e, #e67833);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .event-details h1 {
+  .hero-banner .event-details h1 {
     font-size: 3rem;
   }
 
-  .event-tagline {
+  .hero-banner .event-tagline {
     font-size: 1.2rem;
   }
 }

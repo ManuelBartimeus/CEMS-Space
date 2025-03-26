@@ -10,94 +10,9 @@ import Testimonials from "../components/HomeScreen/Testimonials/Testimonials";
 import Footer from "../components/HomeScreen/Footer/Footer";
 import InterestModal from "../components/HomeScreen/InterestModal/InterestModal";
 
-import Excursion from "../assets/ExcursionFlyer.jpg";
-import Seminar1 from "../assets/seminar_1.jpg";
-import Seminar2 from "../assets/seminar_2.jpg";
-import Seminar3 from "../assets/seminar_3.jpg";
-import Workshop1 from "../assets/workshop_1.jpg";
-import Entertainment1 from "../assets/entertainment-1.jpg";
-import Career1 from "../assets/career_1.jpg";
 import "../App.css";
 
-const Events = [
-  {
-    id: 1,
-    title: "Y33ko Cape Aba",
-    date: "March 15",
-    location: "Cape Coast",
-    image: Excursion,
-    rating: 4,
-    bookmarked: false,
-    category: "Entertainment",
-    creator: "SCISA",
-  },
-  {
-    id: 2,
-    title: "Success Africa Summit",
-    date: "Oct 18",
-    location: "Bangalore",
-    image: Seminar1,
-    rating: 5,
-    bookmarked: true,
-    category: "Workshop",
-    creator: "CSS",
-  },
-  {
-    id: 3,
-    title: "Music DJ Night",
-    date: "Oct 20",
-    location: "Hyderabad",
-    image: Entertainment1,
-    rating: 4,
-    bookmarked: false,
-    category: "Entertainment",
-    creator: "SCISA",
-  },
-  {
-    id: 4,
-    title: "Food and Wine Festival",
-    date: "Oct 22",
-    location: "Mumbai",
-    image: Seminar2,
-    rating: 5,
-    bookmarked: true,
-    category: "Seminar",
-    creator: "BCHEM",
-  },
-  {
-    id: 5,
-    title: "Indie Music / Dance",
-    date: "Oct 25",
-    location: "Delhi",
-    image: Seminar3,
-    rating: 4,
-    bookmarked: false,
-    category: "Entertainment",
-    creator: "CSS",
-  },
-  {
-    id: 6,
-    title: "Art Exhibition",
-    date: "Oct 28",
-    location: "Kolkata",
-    image: Workshop1,
-    rating: 5,
-    bookmarked: true,
-    category: "Workshop",
-    creator: "SCISA",
-  },
-  {
-    id: 7,
-    title: "Comedy Night",
-    date: "Oct 30",
-    location: "Pune",
-    image: Career1,
-    rating: 4,
-    bookmarked: false,
-    category: "Career",
-    creator: "BCHEM",
-  },
-];
+import { events } from "../data/events"; // Import the events array
 
 const Homepage = () => {
   const [showInterestModal, setShowInterestModal] = useState(false);
@@ -113,8 +28,8 @@ const Homepage = () => {
   };
 
   const filteredEventsByCategory = selectedCategory === "All"
-    ? Events
-    : Events.filter((event) => event.category === selectedCategory);
+    ? events
+    : events.filter((event) => event.category === selectedCategory);
 
   const filteredEventsByOrganizer = filteredEventsByCategory.filter(
     (event) => event.creator === selectedLocation

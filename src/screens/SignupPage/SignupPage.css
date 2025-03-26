@@ -1,0 +1,170 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f7fa;
+}
+
+.signup-box {
+  display: flex;
+  width: 1000px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logo-image {
+  width: 100px;
+  height: auto;
+}
+
+.signup-left {
+  padding: 40px;
+}
+
+.signup-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  color: #2563eb;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.social-signup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.google-btn {
+  background-color: #db4437;
+  color: white;
+}
+
+.facebook-btn {
+  background-color: #1877f2;
+  color: white;
+}
+
+.separator {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+  color: #9ca3af;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #f9fafb;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #6b7280;
+}
+
+.input-field {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+}
+
+.options {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.accept-terms {
+  display: flex;
+  align-items: center;
+}
+
+.terms-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.signup-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.signup-right {
+  width: 50%;
+  background-color: #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensure the image fits within the container */
+}
+
+.signup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image scales properly */
+}
+
+.connect-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.connect-subtitle {
+  font-size: 14px;
+}

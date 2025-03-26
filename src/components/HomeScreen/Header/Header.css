@@ -64,13 +64,53 @@
     background: linear-gradient(145deg, #e9b200, #e67833);
     color: white;
     padding: 0.5rem 1.2rem;
-    border-radius: 4px;
+    border-radius: 20px;
     font-weight: 500;
     font-size: 0.9rem;
   }
 
   .login-button:hover {
     background: linear-gradient(45deg, #e89b1e, #e67833);
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Add spacing between the profile and logout button */
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Add spacing between the icon and the text */
+    color: var(--dark-blue);
+  }
+
+  .user-profile span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333; /* Match the nav-links text color */
+    text-decoration: none;
+  }
+
+  .user-profile span:hover {
+    color: var(--primary-color); /* Optional: Add hover effect */
+  }
+
+  .logout-button {
+    background: #fff;
+    color: #e67833;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 2px #e67833 solid;
+    cursor: pointer;
+  }
+
+  .logout-button:hover {
+    background: linear-gradient(45deg, #e89b1e, #e67833);
+    color: #fff; 
   }
   
   @media (max-width: 768px) {
@@ -88,5 +128,4 @@
       display: none;
     }
   }
-  
-  
+

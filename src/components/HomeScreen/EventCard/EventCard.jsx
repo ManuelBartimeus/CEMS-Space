@@ -1,21 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import "./EventCard.css"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./EventCard.css";
 
 const EventCard = ({ event }) => {
-  const [isBookmarked, setIsBookmarked] = useState(event.bookmarked || false)
+  const [isBookmarked, setIsBookmarked] = useState(event.bookmarked || false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const toggleBookmark = (e) => {
-    e.preventDefault()
-    setIsBookmarked(!isBookmarked)
-  }
+    e.preventDefault();
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const handleCardClick = () => {
+    navigate(`/book/${event.id}`); // Navigate to the EventBooking screen with the event ID
+  };
 
   return (
-    <div className="event-card">
+    <div className="event-card" onClick={handleCardClick}>
       <div className="event-image">
         <img src={event.image || "/placeholder.svg"} alt={event.title} />
-        <button className={`bookmark-button ${isBookmarked ? "active" : ""}`} onClick={toggleBookmark}>
+        <button
+          className={`bookmark-button ${isBookmarked ? "active" : ""}`}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent triggering the card click
+            toggleBookmark(e);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -53,11 +65,19 @@ const EventCard = ({ event }) => {
           <p>{event.date}</p>
           <p>{event.location}</p>
         </div>
-        <button className="book-now-button">Book Now</button>
+        <button
+          className="book-now-button"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent triggering the card click
+            handleCardClick();
+          }}
+        >
+          Book Now
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EventCard
+export default EventCard;
 

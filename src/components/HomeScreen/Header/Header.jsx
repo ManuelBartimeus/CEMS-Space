@@ -1,11 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import "./Header.css"
-import logo from "../../../assets/prime-icons/logo.png"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext"; // Import useUser
+import "./Header.css";
+import logo from "../../../assets/prime-icons/logo.png";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate(); // Hook for navigation
+  const { loggedInUser, setLoggedInUser } = useUser(); // Access loggedInUser and setLoggedInUser from context
+
+  const handleLogout = () => {
+    setLoggedInUser(null); // Clear the logged-in user
+    navigate("/"); // Redirect to the homepage
+  };
+
+  const handleProfileClick = () => {
+    navigate("/aboutme"); // Redirect to the AboutMe screen
+  };
 
   return (
     <header className="header">
@@ -42,24 +56,44 @@ const Header = () => {
         <nav className="nav-links">
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="/">Explore</a>
             </li>
             <li>
-              <a href="#">Explore</a>
+              <a href="/createevent">My Events</a>
             </li>
-            <li>
-              <a href="#">My Events</a>
-            </li>
+            {!loggedInUser && (
+              <li>
+                <a href="/signup">Sign Up</a>
+              </li>
+            )}
           </ul>
         </nav>
 
         <div className="auth-buttons">
-          <button className="login-button">Login</button>
+          {loggedInUser ? (
+            <div className="user-info">
+              <div className="user-profile" onClick={handleProfileClick}>
+                <FaUserCircle size={24} />
+                <span>{loggedInUser.firstName}</span>
+              </div>
+              <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <button
+                className="login-button"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            </>
+          )}
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;
