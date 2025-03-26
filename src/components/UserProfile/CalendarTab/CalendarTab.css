@@ -1,0 +1,79 @@
+.calendar-tab {
+  color: #333;
+  background: #f8f9fc;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fc {
+  color: #333;
+}
+
+.fc-toolbar {
+  margin-bottom: 20px;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+}
+
+.fc-button {
+  background-color: #112d4e; /* Set the background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.fc-button:hover {
+  background-color: #0f2540; /* Darker shade for hover effect */
+}
+
+.fc-button-primary {
+  background-color: #112d4e; /* Ensure primary buttons match the theme */
+}
+
+.fc-button-primary:hover {
+  background-color: #0f2540; /* Darker shade for hover effect */
+}
+
+.fc-daygrid-event {
+  background: #112d4e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
+.fc-daygrid-event:hover {
+  background: rgb(17, 51, 91);
+}
+
+.fc-daygrid-day-number {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.fc-daygrid-day {
+  border: 1px solid #ddd;
+}
+
+.fc-day-today {
+  background: rgba(232, 139, 33, 0.2);
+}
+
+.fc-scrollgrid {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}

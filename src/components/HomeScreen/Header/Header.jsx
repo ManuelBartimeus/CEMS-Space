@@ -59,7 +59,7 @@ const Header = () => {
               <a href="/">Explore</a>
             </li>
             <li>
-              <a href="/createevent">My Events</a>
+              <a href="/createevent">Create Event</a>
             </li>
             {!loggedInUser && (
               <li>

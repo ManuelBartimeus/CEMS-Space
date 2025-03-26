@@ -7,6 +7,8 @@ import profile from "../../assets/profile-pic.jpeg";
 import { useUser } from "../../context/UserContext"; // Import useUser for accessing logged-in user
 import { users } from "../../data/users"; // Import the users array
 import Bookings from "../../components/UserProfile/BookingTab/BookingTab"; // Import the Bookings component
+import CreationTab from "../../components/UserProfile/CreationTab/CreationTab"; // Import the CreationTab component
+import CalendarTab from "../../components/UserProfile/CalendarTab/CalendarTab"; // Import the CalendarTab component
 
 const AboutMe = () => {
   const { loggedInUser, setLoggedInUser } = useUser(); // Access the logged-in user from context
@@ -138,6 +140,8 @@ const AboutMe = () => {
           </div>
         )}
         {activeTab === "Bookings" && <Bookings />} {/* Render Bookings when the Bookings tab is selected */}
+        {activeTab === "Creation" && <CreationTab />} {/* Render CreationTab when the Creation tab is selected */}
+        {activeTab === "Calendar" && <CalendarTab />} {/* Render CalendarTab when the Calendar tab is selected */}
       </main>
 
       {isModalOpen && (
